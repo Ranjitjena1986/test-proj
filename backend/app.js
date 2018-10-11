@@ -3,6 +3,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const mongoose = require("mongoose");
+
+mongoose
+  .connect("mongodb://localhost:27017/myapp",{ useNewUrlParser: true })
+  .then(() => {
+    console.log("Connected to database!");
+  })
+  .catch(() => {
+    console.log("Connection failed!");
+  });
 
 const app = express();
 
