@@ -6,7 +6,9 @@ const logger = require('morgan');
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost:27017/myapp",{ useNewUrlParser: true })
+  .connect("mongodb://localhost:27017/myapp",
+   { useCreateIndex: true,
+     useNewUrlParser: true })
   .then(() => {
     console.log("Connected to database!");
   })
